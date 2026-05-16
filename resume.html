@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhijit Sahasrabudhe | Agile Delivery Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(14, 19, 42, 0.7);
+      --border: rgba(255,255,255,0.08);
+      --text: #f5f7ff;
+      --muted: #a7b0d4;
+      --primary: #5eead4;
+      --secondary: #7c3aed;
+      --accent: #38bdf8;
+      --success: #22c55e;
+      --shadow: 0 10px 40px rgba(0,0,0,0.4);
+      --glass: blur(18px);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, rgba(124,58,237,0.35), transparent 25%),
+                  radial-gradient(circle at bottom right, rgba(56,189,248,0.25), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(94,234,212,0.12), transparent 70%);
+      top: -300px;
+      right: -250px;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%);
+      bottom: -250px;
+      left: -180px;
+      z-index: 0;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1450px;
+      margin: 40px auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--border);
+      backdrop-filter: var(--glass);
+      -webkit-backdrop-filter: var(--glass);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-left {
+      padding: 48px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .availability {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.15);
+      color: #86efac;
+      font-size: 13px;
+      border: 1px solid rgba(34,197,94,0.25);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.6); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 58px;
+      line-height: 1;
+      margin-bottom: 18px;
+      letter-spacing: -2px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--primary), var(--accent), #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 780px;
+      margin-bottom: 34px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(94,234,212,0.35);
+    }
+
+    .stat-number {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .hero-right {
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .profile-ring {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+      animation: rotate 12s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 58px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.25s ease;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(56,189,248,0.35);
+      transform: translateX(4px);
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+    }
+
+    .section {
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 0 18px rgba(94,234,212,0.7);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: linear-gradient(var(--primary), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 30px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 20px rgba(94,234,212,0.8);
+    }
+
+    .role {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .company {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .duration {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .achievements {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .achievements li {
+      position: relative;
+      padding-left: 22px;
+      color: #d7ddf9;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .achievements li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .skill-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(124,58,237,0.16);
+      border: 1px solid rgba(124,58,237,0.25);
+      font-size: 13px;
+      color: #ddd6fe;
+    }
+
+    .certifications {
+      display: grid;
+      gap: 16px;
+    }
+
+    .cert-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .cert-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .cert-org {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 14px;
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.25;
+      z-index: 0;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 180px;
+      height: 180px;
+      background: #38bdf8;
+      top: 10%;
+      left: 2%;
+    }
+
+    .orb-2 {
+      width: 220px;
+      height: 220px;
+      background: #7c3aed;
+      bottom: 5%;
+      right: 4%;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(30px); }
+    }
+
+    @media(max-width: 1100px) {
+      .hero,
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 768px) {
+      .title {
+        font-size: 42px;
+      }
+
+      .hero-left,
+      .hero-right,
+      .section {
+        padding: 24px;
+      }
+
+      .stats,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-orb orb-1"></div>
+  <div class="floating-orb orb-2"></div>
+
+  <div class="container">
+
+    <section class="hero">
+      <div class="glass hero-left">
+
+        <div class="hero-top">
+          <div class="availability">
+            <span class="dot"></span>
+            Open to Agile Delivery / Product / Program Leadership Roles
+          </div>
+        </div>
+
+        <h1 class="title">
+          Abhijit <span class="gradient">Sahasrabudhe</span>
+        </h1>
+
+        <p class="subtitle">
+          Agile Delivery Leader and Scrum Master focused on driving predictable execution,
+          cross-functional alignment, delivery governance, sprint optimization, stakeholder management,
+          and high-impact product delivery. Experienced in scaling Agile practices, improving sprint
+          predictability, reducing delivery risks, and enabling teams to deliver measurable business outcomes.
+        </p>
+
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-number" data-target="8">0+</div>
+            <div class="stat-label">Years in Agile Delivery & Program Execution</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="15">0+</div>
+            <div class="stat-label">Cross-functional Teams Facilitated</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="30">0%</div>
+            <div class="stat-label">Improvement in Delivery Predictability</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="100">0+</div>
+            <div class="stat-label">Sprints Planned & Delivered</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass hero-right">
+        <div>
+          <div class="profile-ring">
+            <div class="profile-inner">AS</div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <div class="contact-label">Role Focus</div>
+              <div class="contact-value">Scrum Master • Agile Delivery • Product Operations</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Pune, Maharashtra, India</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Core Expertise</div>
+              <div class="contact-value">Agile Governance • Sprint Predictability • Delivery Leadership</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Tools</div>
+              <div class="contact-value">Jira • Confluence • Azure DevOps • Miro • Power BI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-grid">
+
+      <div>
+
+        <div class="glass section">
+          <h2 class="section-title">Professional Experience</h2>
+
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="role">Senior Scrum Master / Agile Delivery Lead</div>
+              <div class="company">Enterprise Product & Engineering Teams</div>
+              <div class="duration">2022 — Present</div>
+
+              <ul class="achievements">
+                <li>Led Agile ceremonies across distributed teams while improving sprint planning accuracy, delivery visibility, and stakeholder communication.</li>
+                <li>Implemented delivery governance frameworks including RAID management, dependency tracking, sprint forecasting, and release readiness reviews.</li>
+                <li>Improved sprint predictability through velocity tracking, backlog refinement discipline, and proactive risk mitigation strategies.</li>
+                <li>Collaborated closely with product managers, architects, QA teams, and business stakeholders to align priorities with delivery roadmaps.</li>
+                <li>Coached Agile teams on Scrum, Kanban, estimation practices, and continuous improvement culture.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="role">Scrum Master / Delivery Coordinator</div>
+              <div class="company">Digital Transformation Programs</div>
+              <div class="duration">2019 — 2022</div>
+
+              <ul class="achievements">
+                <li>Facilitated Scrum of Scrums and cross-team coordination to reduce delivery blockers and improve inter-team dependency management.</li>
+                <li>Built reporting dashboards for velocity, burn-down trends, cycle time, and sprint health metrics for leadership visibility.</li>
+                <li>Strengthened UAT readiness and release coordination processes to improve deployment confidence and reduce post-release issues.</li>
+                <li>Enabled stronger backlog prioritization and stakeholder alignment by collaborating with product owners and business teams.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="role">Project Coordination & Operations</div>
+              <div class="company">Technology & Delivery Operations</div>
+              <div class="duration">Earlier Experience</div>
+
+              <ul class="achievements">
+                <li>Supported project execution through tracking mechanisms, governance reporting, issue management, and communication planning.</li>
+                <li>Contributed to process optimization initiatives that improved execution transparency and operational efficiency.</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="glass section">
+          <h2 class="section-title">Core Skills</h2>
+
+          <div class="skill-grid">
+
+            <div class="skill-card">
+              <div class="skill-title">Agile Delivery</div>
+              <div class="tags">
+                <span class="tag">Sprint Planning</span>
+                <span class="tag">Release Planning</span>
+                <span class="tag">Capacity Planning</span>
+                <span class="tag">Scrum</span>
+                <span class="tag">Kanban</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">Governance</div>
+              <div class="tags">
+                <span class="tag">RAID Management</span>
+                <span class="tag">Risk Tracking</span>
+                <span class="tag">Dependency Management</span>
+                <span class="tag">Delivery Reporting</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">Leadership</div>
+              <div class="tags">
+                <span class="tag">Stakeholder Alignment</span>
+                <span class="tag">Cross-functional Leadership</span>
+                <span class="tag">Agile Coaching</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">Metrics & Analytics</div>
+              <div class="tags">
+                <span class="tag">Velocity Tracking</span>
+                <span class="tag">Cycle Time</span>
+                <span class="tag">Burn-down Analysis</span>
+                <span class="tag">Sprint Predictability</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="glass section">
+          <h2 class="section-title">Certifications</h2>
+
+          <div class="certifications">
+
+            <div class="cert-item">
+              <div class="cert-title">Professional Scrum / Agile Certifications</div>
+              <div class="cert-org">Add your Scrum.org / SAFe / PMI certifications here</div>
+            </div>
+
+            <div class="cert-item">
+              <div class="cert-title">Project & Delivery Management</div>
+              <div class="cert-org">Add relevant governance or leadership certifications</div>
+            </div>
+
+            <div class="cert-item">
+              <div class="cert-title">Tools & Platforms</div>
+              <div class="cert-org">Jira, Azure DevOps, Agile Analytics, Reporting Tools</div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="glass section">
+          <h2 class="section-title">Education</h2>
+
+          <div class="timeline-item" style="margin-bottom:0;">
+            <div class="role">Bachelor's Degree</div>
+            <div class="company">Add Your University Name</div>
+            <div class="duration">Academic Background</div>
+
+            <ul class="achievements">
+              <li>Add specialization, graduation year, and relevant achievements here.</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="footer glass">
+      Designed as a futuristic single-file interactive resume • HTML + CSS + JavaScript • Optimized for recruiters, ATS showcase, and portfolio presentation.
+    </div>
+
+  </div>
+
+  <script>
+
+    // Counter animation
+    const counters = document.querySelectorAll('.stat-number');
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const increment = target / 40;
+
+      const updateCounter = () => {
+        const current = +counter.innerText.replace(/[^0-9]/g, '');
+
+        if(current < target) {
+          const next = Math.ceil(current + increment);
+
+          if(counter.innerText.includes('%')) {
+            counter.innerText = next + '%';
+          } else {
+            counter.innerText = next + '+';
+          }
+
+          setTimeout(updateCounter, 35);
+        } else {
+          if(counter.innerText.includes('%')) {
+            counter.innerText = target + '%';
+          } else {
+            counter.innerText = target + '+';
+          }
+        }
+      };
+
+      updateCounter();
+    });
+
+
+    // Subtle tilt interaction
+    const cards = document.querySelectorAll('.glass');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width) - 0.5) * 6;
+        const rotateX = ((y / rect.height) - 0.5) * -6;
+
+        card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
+      });
+    });
+
+  </script>
+</body>
+</html>
